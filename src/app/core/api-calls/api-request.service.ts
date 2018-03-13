@@ -42,4 +42,14 @@ export class ApiRequestService {
     return response;
   }
 
+  public async searchArtist(id:string): Promise<any>{
+    var url= "https://api.spotify.com/v1/artists/" + id;
+
+    var headers = new HttpHeaders().set("Authorization", `Bearer ${this.accessToken}`);
+    let response = await this.httpClient.get(url, { headers: headers }).toPromise();
+    
+    console.log("searchArtist()", response); 
+    return response;
+  }
+
 }

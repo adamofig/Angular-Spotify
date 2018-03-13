@@ -22,4 +22,8 @@ export class MainComponent implements OnInit {
     this.searchingResponse = await this.apiRequestService.searchInSpotify(this.searchModel);
   }
 
+  public showDetails(artist: any): void {
+    console.log("showDetails()", artist);
+  }
+
 }

@@ -9,6 +9,8 @@ import { RouterModule } from "@angular/router";
 
 import { MenuComponent } from "../app/features/menu/menu.component";
 import { MainComponent } from "../app/features/main/main.component";
+import { ArtistDetailComponent } from "../app/features/artist-detail/artist-detail.component";
+import { SearchArtistComponent } from "../app/features/search-artist/search-artist.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,13 @@ import { MainComponent } from "../app/features/main/main.component";
     CoreModule,
     RouterModule.forRoot([
       { path: "mi-menu", component: MenuComponent },
-      { path: "buscar-artista", component: MainComponent },
+      {
+        path: "principal", component: MainComponent,
+        children: [
+          { path: "detalles", component: ArtistDetailComponent },
+          { path:"buscar-artista", component: SearchArtistComponent}
+        ]
+      },
       { path: "**", component: MenuComponent }
     ]),
   ],
