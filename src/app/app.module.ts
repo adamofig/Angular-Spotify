@@ -25,8 +25,9 @@ import { SearchArtistComponent } from "../app/features/search-artist/search-arti
       {
         path: "principal", component: MainComponent,
         children: [
-          { path: "detalles", component: ArtistDetailComponent },
-          { path:"buscar-artista", component: SearchArtistComponent}
+          { path: "detalles/:id", component: ArtistDetailComponent },
+          { path:"buscar-artista", component: SearchArtistComponent},
+          
         ]
       },
       { path: "**", component: MenuComponent }

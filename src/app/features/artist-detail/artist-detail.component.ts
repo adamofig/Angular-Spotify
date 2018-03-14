@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiRequestService } from "../../core/api-calls/api-request.service";
 
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-artist-detail',
   templateUrl: './artist-detail.component.html',
@@ -8,14 +10,18 @@ import { ApiRequestService } from "../../core/api-calls/api-request.service";
 })
 export class ArtistDetailComponent implements OnInit {
 
-  private id: string = "0epOFNiUfyON9EYx7Tpr6V";
-  constructor(private apiRequestService: ApiRequestService) { }
-  public artist:any;
+  private id: string ;
+
+  constructor(private activatedRoute: ActivatedRoute, private apiRequestService: ApiRequestService) { }
+  public artist: any;
 
   ngOnInit() {
+    console.log("ngOnInit()", 
+    this.id = this.activatedRoute.snapshot.params.id);
+    this.search();
   }
 
-  public async search(): Promise<void>{
+  public async search(): Promise<void> {
     this.artist = await this.apiRequestService.searchArtist(this.id);
   }
 

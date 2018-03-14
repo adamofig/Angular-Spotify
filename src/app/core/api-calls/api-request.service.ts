@@ -14,6 +14,7 @@ export class ApiRequestService {
   private accessToken: string;
 
   constructor(private httpClient: HttpClient) {
+    this.loginSpotify();
   }
 
   private getAuthorizationCoded(): string {
