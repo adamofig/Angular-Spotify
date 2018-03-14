@@ -14,6 +14,7 @@ export class ArtistDetailComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private apiRequestService: ApiRequestService) { }
   public artist: any;
+  public albums:any;
 
   ngOnInit() {
     console.log("ngOnInit()", 
@@ -23,6 +24,8 @@ export class ArtistDetailComponent implements OnInit {
 
   public async search(): Promise<void> {
     this.artist = await this.apiRequestService.searchArtist(this.id);
+    this.albums= await this.apiRequestService.searchAlbums(this.id);
+  
   }
 
 

@@ -53,4 +53,14 @@ export class ApiRequestService {
     return response;
   }
 
+  public async searchAlbums(id:string): Promise<any>{
+    var url = `https://api.spotify.com/v1/artists/${id}/albums`;
+
+    var headers = new HttpHeaders().set("Authorization", `Bearer ${this.accessToken}`);
+    let response = await this.httpClient.get(url, { headers: headers }).toPromise();
+    
+    console.log("searchAlbums()", response); 
+    return response;
+  }
+
 }
