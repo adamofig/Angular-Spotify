@@ -11,6 +11,7 @@ import { MenuComponent } from "../app/features/menu/menu.component";
 import { MainComponent } from "../app/features/main/main.component";
 import { ArtistDetailComponent } from "../app/features/artist-detail/artist-detail.component";
 import { SearchArtistComponent } from "../app/features/search-artist/search-artist.component";
+import { AvancedSearchComponent } from "../app/features/avanced-search/avanced-search.component";
 
 @NgModule({
   declarations: [
@@ -26,8 +27,9 @@ import { SearchArtistComponent } from "../app/features/search-artist/search-arti
         path: "principal", component: MainComponent,
         children: [
           { path: "detalles/:id", component: ArtistDetailComponent },
-          { path:"buscar-artista", component: SearchArtistComponent},
-          
+          { path: "buscar-artista", component: SearchArtistComponent },
+          { path: "busqueda", component: AvancedSearchComponent },
+
         ]
       },
       { path: "**", component: MenuComponent }
